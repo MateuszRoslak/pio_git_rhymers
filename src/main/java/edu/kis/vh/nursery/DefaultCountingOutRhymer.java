@@ -2,19 +2,10 @@ package edu.kis.vh.nursery;
 
 public class DefaultCountingOutRhymer {
 
-	/**
-	 *
-	 */
 	private static final int MAX_SIZE = 12;
-
-	/**
-	 *
-	 */
 	private static final int EMPTY_RHYMER_INDICATOR = -1;
-
 	private final int[] numbers = new int[MAX_SIZE];
-
-	public int total = EMPTY_RHYMER_INDICATOR;
+	private int total = EMPTY_RHYMER_INDICATOR;
 
 
 	public void countIn(int in) {
