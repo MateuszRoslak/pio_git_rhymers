@@ -1,8 +1,7 @@
-package edu.kis.vh.nursery.list;
+package edu.kis.vh.nursery.data_structures;
 
 public class IntLinkedList {
 
-	private static final int RETURN_EMPTY = -1;
 	private Node last;
 
 	public void push(int i) {
@@ -25,13 +24,13 @@ public class IntLinkedList {
 
 	public int top() {
 		if (isEmpty())
-			return RETURN_EMPTY;
+			return StackInterface.EMPTY_RHYMER_INDICATOR;
 		return last.getValue();
 	}
 
 	public int pop() {
 		if (isEmpty())
-			return RETURN_EMPTY;
+			return StackInterface.EMPTY_RHYMER_INDICATOR;
 		int ret = last.getValue();
 		last = last.getPrev();
 		return ret;

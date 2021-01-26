@@ -1,4 +1,4 @@
-package edu.kis.vh.nursery.list;
+package edu.kis.vh.nursery.data_structures;
 
 public class Node {
 	private final int value;
