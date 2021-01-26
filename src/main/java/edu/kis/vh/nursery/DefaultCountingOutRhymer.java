@@ -4,63 +4,41 @@ package edu.kis.vh.nursery;
 *	Default Rhymer class
 * */
 
+import edu.kis.vh.nursery.data_structures.IntArrayStack;
+
 public class DefaultCountingOutRhymer {
 
-	private static final int MAX_SIZE = 12;
-	private static final int EMPTY_RHYMER_INDICATOR = -1;
-	private final int[] numbers = new int[MAX_SIZE];
-	private int total = EMPTY_RHYMER_INDICATOR;
+	IntArrayStack stack;
 
-	/*
-	* 	Total variable getter
-	* */
+	public DefaultCountingOutRhymer(IntArrayStack stack) {
+		this.stack = stack;
+	}
+
+	public DefaultCountingOutRhymer() {
+		this.stack = new IntArrayStack();
+	}
 
 	public int getTotal() {
-		return total;
+		return stack.getTotal();
 	}
-
-	/*
-	* 	Count numbers method
-	* */
 
 	public void countIn(int in) {
-		if (!isFull())
-			numbers[++total] = in;
+		stack.push(in);
 	}
-
-	/*
-	* 	Check if rhymer is empty
-	* */
 
 	public boolean callCheck() {
-		return total == EMPTY_RHYMER_INDICATOR;
+		return stack.isEmpty();
 	}
-
-	/*
-	* 	Check if rhymer is full
-	* */
 
 	public boolean isFull() {
-		return total == 11;
+		return stack.isFull();
 	}
 
-	/*
-	* 	If rhymer is empty return empty indicator, else return array of numbers
-	* */
-
-	protected int peekaboo() {
-		if (callCheck())
-			return EMPTY_RHYMER_INDICATOR;
-		return numbers[total];
+	public int peekaboo() {
+		return stack.top();
 	}
-
-	/*
-	* 	If rhymer is empty return empty indicator, else return array of numbers
-	* */
 
 	public int countOut() {
-		if (callCheck())
-			return EMPTY_RHYMER_INDICATOR;
-		return numbers[total--];
+		return stack.pop();
 	}
 }
